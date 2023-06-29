@@ -1,0 +1,14 @@
+.confirm-delete {
+  margin-top: 20px;
+  width: 500px;
+  height: 200px;
+  background-color: rgba(153, 153, 153, 0.834);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-wrapper button {
+  padding: 15px 20px;
+  margin-right: 15px;
+}
