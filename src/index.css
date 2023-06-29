@@ -1,5 +1,78 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+app {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.log-link {
+  color: black;
+}
+
+.Logs {
+  padding: 20px;
+  margin-top: 3rem;
+  max-width: 100%;
+}
+
+.log-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+}
+.card {
+  background-color: beige;
+  padding: 30px;
+  border-radius: 10px;
+}
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.new-log,
+.edit-log {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form {
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+form button {
+  display: block;
+  padding: 10px 15px;
+  width: 40%;
+  margin: 0 auto;
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 25px;
+}
+textarea {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.back-button {
+  padding: 10px 20px;
+  margin-top: 20px;
 }
