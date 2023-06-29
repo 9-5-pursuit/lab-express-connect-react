@@ -35,7 +35,7 @@ export function Logs(){
                     }
                     return(
                         <>
-                        <div class="contentItems">
+                        <div class="contentItems" onClick={(x) => console.log(x.target.parentNode)}>
                             <img class="col1" src={boomIcon}/>
                             <p class="col2">{item.captainName}</p>
                             <p class="col3">{item.title}</p>
