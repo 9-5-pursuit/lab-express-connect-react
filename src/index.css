@@ -113,3 +113,15 @@ header h1{
 #newCrisis{
   margin:15px;
 }
+
+#errorButton{
+  display: flex;
+  width: 20%;
+  height: 30%;
+  justify-self: end;
+  justify-content: center;
+  align-self: center;
+  align-content: center;
+  margin-right: 5%;
+  font-size: .7em;
+}
