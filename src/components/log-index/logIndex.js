@@ -23,10 +23,16 @@ export function LogIndex(){
         navigator('/logs')
     }
     function editButton(){
-        navigator('/logs')
+        navigator(`/logs/edit/${dataIndex}`)
     }
-    function deleteButton(){
-        navigator('/logs')
+    async function deleteButton(){
+        try{
+            let result = await axios.delete(`http://192.168.1.251:3005/logs/${dataIndex}`)
+            navigator('/logs')
+        }catch(e){
+            console.log(e)
+        }
+        console.log(dataIndex)
     }
 
     return(

@@ -5,6 +5,7 @@ import { Logs } from './components/logs/logs';
 import { LogIndex } from './components/log-index/logIndex';
 import { PageNotFound } from './components/pageNotFound';
 import { CreateLog } from './components/create-log/createLog';
+import { UpdateLogs } from './components/update-log/update-log';
 
 function App() {
   const navigator = useNavigate()
@@ -21,6 +22,7 @@ function App() {
         <Route path="/logs" element={<Logs/>} />
         <Route path="/logs/:index" element={<LogIndex/>} />
         <Route path="/logs/create" element={<CreateLog/>} />
+        <Route path="/logs/edit/:index" element={<UpdateLogs/>} />
         <Route path="*" element={<PageNotFound/>} />
       </Routes>
     </>
