@@ -1,6 +1,7 @@
 import './index.css';
 import { Route, Routes } from "react-router-dom";
 import { Logs } from './components/logs/logs';
+import { LogIndex } from './components/log-index/logIndex';
 import { PageNotFound } from './components/pageNotFound';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/logs" element={<Logs/>} />
-        <Route path="/logs/:index" element={<Logs/>} />
+        <Route path="/logs/:index" element={<LogIndex/>} />
         <Route path="*" element={<PageNotFound/>} />
       </Routes>
     </>

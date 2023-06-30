@@ -48,7 +48,7 @@ header h1{
   grid-template-columns: 1fr 1fr 1fr;
 }
 .contentItems :hover{
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(189, 189, 189);
   cursor: pointer;
 }
 

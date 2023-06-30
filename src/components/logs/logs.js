@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import mistakeIcon from "../images/boomIcon.png"
 
 export function Logs(){
+    const navigator = useNavigate()
     const [data, setData] = useState([])
     async function fetchData(){
         try{
@@ -14,10 +15,20 @@ export function Logs(){
           console.log(e)
         }
       }
+    function getLogByIndex(item){
+        let title = NaN
+        if(item.target.classList.value === "contentItems"){
+            title = item.target.children[2].innerText
+        }else{
+            title = item.target.parentNode.children[2].innerText 
+        }
+        console.log(title)
+        let itemIndex = data.findIndex(x => x.title === title)
+        navigator(`/logs/${itemIndex}`)
+    }
     useEffect(() => {
         fetchData()
     }, [])
-
     return(
         <div class="mainContent">
             <h2>Index</h2>
@@ -35,7 +46,7 @@ export function Logs(){
                     }
                     return(
                         <>
-                        <div class="contentItems" onClick={(x) => console.log(x.target.parentNode)}>
+                        <div class="contentItems" onClick={(item) => getLogByIndex(item)}>
                             <img class="col1" src={boomIcon}/>
                             <p class="col2">{item.captainName}</p>
                             <p class="col3">{item.title}</p>
