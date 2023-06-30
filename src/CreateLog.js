@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -23,22 +23,17 @@ function CreateLog() {
             [name]: inputValue
         }));
     };
-    useEffect(() => {
-        axios.get('http://localhost:8888/logs').then(res => setNavIndex(res.data.length - 1))
-    }, [])
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (formData['captainName'] === '') return
         setFormData(initialFormData)
         await axios.post(`http://localhost:8888/logs`, formData).then(res => {
-            setNavIndex(res.data.length-1)
-            navigate(`/logs/${navIndex.toString()}`)
+            let indexVal = res.data.length - 1
+            setNavIndex(indexVal.toString())
+            navigate('/logs')
         }).catch(e => console.log(e))
     };
-    async function handleDeleteByInd(index) {
-        await axios.delete(`http://localhost:8888/logs/${index}`).then(res => {
-          setNavIndex(res.data.length-1)
-        }).catch(e => console.log(e))
-      }
+
     return (
         <div style={{ padding: '2em' }}>
             <h1>New</h1>
@@ -49,7 +44,7 @@ function CreateLog() {
                         type="text"
                         id="captainName"
                         name="captainName"
-                        value={formData.name}
+                        value={formData.captainName}
                         onChange={handleInputChange}
                     />
                 </div>
@@ -65,16 +60,16 @@ function CreateLog() {
                 </div>
                     <label htmlFor="textarea">Post:</label>
                     <textarea
-                        id="textarea"
+                        id="post"
                         name="post"
                         value={formData.post}
                         onChange={handleInputChange}
                     />
                 <div>
-                    <label htmlFor="daysSince">Days Since Last Crisis:</label>
+                    <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
                     <input
                         type='number'
-                        id="daysSince"
+                        id="daysSinceLastCrisis"
                         name="daysSinceLastCrisis"
                         value={formData.daysSinceLastCrisis}
                         onChange={handleInputChange}
@@ -91,7 +86,7 @@ function CreateLog() {
                     />
                 </div>
                 <button type="submit">Submit</button>
-                <button onClick={() => {handleDeleteByInd(navIndex)}}>Delete</button>
+                    <a href={`/logs/${navIndex}`}>Show</a>
             </form>
         </div>
     )

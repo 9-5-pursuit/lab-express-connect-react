@@ -13,6 +13,10 @@ function EditLog() {
         daysSinceLastCrisis: 0,
         mistakesWereMadeToday: false
     };
+
+    useEffect(() => {
+        axios.get(`http://localhost:8888/logs/${index}`).then(res => setFormData(res.data)).catch(e => console.log(e))
+    }, [])
     const [formData, setFormData] = useState(initialFormData);
     const navigate = useNavigate();
     const handleInputChange = (event) => {
@@ -28,25 +32,22 @@ function EditLog() {
         event.preventDefault();
         setFormData(initialFormData)
         await axios.put(`http://localhost:8888/logs/${index}`, formData).then(res => {
-            navigate(`/logs`)
+            navigate(`/logs/${index}`)
         }).catch(e => console.log(e))
     };
 
-  return (
-    <div>
-        <header>
-            <h1>Captain's Log</h1>
-            <button onClick={() => navigate('/logs/new')}>New Log</button>
-        </header>
-        <h1>New</h1>
-        <form onSubmit={handleSubmit}>
+    return (
+        <div>
+            <h1>Edit</h1>
+            <a href='/logs'>Back</a>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="captainName">Captain's Name:</label>
                     <input
                         type="text"
                         id="captainName"
                         name="captainName"
-                        value={formData.name}
+                        value={formData.captainName}
                         onChange={handleInputChange}
                     />
                 </div>
@@ -60,19 +61,19 @@ function EditLog() {
                         onChange={handleInputChange}
                     />
                 </div>
-                    <label htmlFor="textarea">Post:</label>
-                    <textarea
-                        id="textarea"
-                        name="post"
-                        placeholder='what happened today?'
-                        value={formData.post}
-                        onChange={handleInputChange}
-                    />
+                <label htmlFor="textarea">Post:</label>
+                <textarea
+                    id="post"
+                    name="post"
+                    placeholder='what happened today?'
+                    value={formData.post}
+                    onChange={handleInputChange}
+                />
                 <div>
-                    <label htmlFor="daysSince">Days Since Last Crisis:</label>
+                    <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
                     <input
                         type='number'
-                        id="daysSince"
+                        id="daysSinceLastCrisis"
                         name="daysSinceLastCrisis"
                         value={formData.daysSinceLastCrisis}
                         onChange={handleInputChange}
@@ -90,8 +91,8 @@ function EditLog() {
                 </div>
                 <button type="submit">Submit</button>
             </form>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default EditLog
