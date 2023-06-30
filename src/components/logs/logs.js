@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import mistakeIcon from "../images/boomIcon.png"
+import emptyIcon from "../images/blank-pbg.png"
 
 export function Logs(){
     const navigator = useNavigate()
@@ -43,6 +44,8 @@ export function Logs(){
                     if(item.mistakesWereMadeToday){
                         console.log(item.mistakesWereMadeToday)
                         boomIcon = mistakeIcon
+                    }else{
+                        boomIcon = emptyIcon
                     }
                     return(
                         <>
