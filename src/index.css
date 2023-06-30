@@ -97,10 +97,19 @@ header h1{
   grid-column: 2/3;
 }
 
-#createLog form{
-  margin: 30px 50px;
+#createLog{
+  width: 30%;
+  padding-left:30px;
 }
-#newName{
-  margin-left: 30px;
-  height: 30px;
+
+#newName,
+#newTitle,
+#newPost{
+  margin:15px;
+  width: 100%;
+}
+
+#newMistakes,
+#newCrisis{
+  margin:15px;
 }

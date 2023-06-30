@@ -6,11 +6,20 @@ export function CreateLog(){
     const [name, setName] = useState('')
     const [title, setTitle] = useState('')
     const [post, setPost] = useState('')
-    const [crisis, setCrisis] = useState('')
-    const [mistakes, setMistakes] = useState('')
-    async function submitForm(){
+    const [crisis, setCrisis] = useState(NaN)
+    const [mistakes, setMistakes] = useState(false)
+    const navigator = useNavigate()
+    async function submitForm(x){
+        x.preventDefault()
         try{
-            await axios.post()
+            const result = await axios.post('http://192.168.1.251:3005/logs',{
+                captainName: name,
+                title: title,
+                post: post,
+                mistakesWereMadeToday: mistakes,
+                daysSinceLastCrisis: crisis,
+            })
+            navigator('/logs')
         }catch(e){
             console.log(e)
         }
@@ -25,7 +34,8 @@ export function CreateLog(){
                     <input
                     type="text"
                     id="newName"
-                    onChange={(x) => setName(x)}
+                    value={name}
+                    onChange={(x) => setName(x.target.value)}
                     />
                     <br/>
                     <label htmlFor="newTitle">Title:</label>
@@ -33,7 +43,8 @@ export function CreateLog(){
                     <input
                     type="text"
                     id="newTitle"
-                    onChange={(x) => setTitle(x)}
+                    value={title}
+                    onChange={(x) => setTitle(x.target.value)}
                     />
                     <br/>
                     <label htmlFor="newPost">Post:</label>
@@ -41,7 +52,8 @@ export function CreateLog(){
                     <input
                     type="text"
                     id="newPost"
-                    onChange={(x) => setPost(x)}
+                    value={post}
+                    onChange={(x) => setPost(x.target.value)}
                     />
                     <br/>
                     <label htmlFor="newCrisis">Days Since Last Crisis:</label>
@@ -49,7 +61,8 @@ export function CreateLog(){
                     <input
                     type="number"
                     id="newCrisis"
-                    onChange={(x) => setCrisis(x)}
+                    value={crisis}
+                    onChange={(x) => setCrisis(x.target.value)}
                     />
                     <br/>
                     <label htmlFor="newMistakes">Mistakes were made today:</label>
@@ -57,11 +70,12 @@ export function CreateLog(){
                     <input
                     type="checkbox"
                     id="newMistakes"
-                    onChange={(x) => setMistakes(x)}
+                    value={mistakes}
+                    onChange={() => setMistakes(!mistakes)}
                     />
                     <button
                     id="newPost"
-                    onChange={(x) => console.log(x)}
+                    onClick={(x) => submitForm(x)}
                     >Submit</button>
                 </form>
             </div>
