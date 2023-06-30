@@ -8,7 +8,7 @@ function GetLogs() {
     useEffect(() => {
         fetchData()
     }, [])
-    async function fetchData(args) {
+    async function fetchData() {
         await axios.get(`http://localhost:8888/logs/`).then(res => {
             if (res.data.length) setLogs(res.data)
             if (res.data.hasOwnProperty('captainName')) setLogs([res.data])

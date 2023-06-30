@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -11,6 +11,12 @@ function CreateLog() {
         daysSinceLastCrisis: 0,
         mistakesWereMadeToday: false
     };
+    useEffect(() => {
+        axios.get(`http://localhost:8888/logs`).then(res => {
+            let indVal = res.data.length - 1
+            setNavIndex(indVal.toString())
+        }).catch(e => console.log(e))
+    }, [])
     const [formData, setFormData] = useState(initialFormData);
     const [navIndex, setNavIndex] = useState('')
     const navigate = useNavigate();
@@ -33,6 +39,10 @@ function CreateLog() {
             navigate('/logs')
         }).catch(e => console.log(e))
     };
+    async function handleDeleteByInd() {
+        await axios.delete(`http://localhost:8888/logs/${navIndex}`).then(res => {
+        }).catch(e => console.log(e))
+    }
 
     return (
         <div style={{ padding: '2em' }}>
@@ -58,13 +68,13 @@ function CreateLog() {
                         onChange={handleInputChange}
                     />
                 </div>
-                    <label htmlFor="textarea">Post:</label>
-                    <textarea
-                        id="post"
-                        name="post"
-                        value={formData.post}
-                        onChange={handleInputChange}
-                    />
+                <label htmlFor="textarea">Post:</label>
+                <textarea
+                    id="post"
+                    name="post"
+                    value={formData.post}
+                    onChange={handleInputChange}
+                />
                 <div>
                     <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
                     <input
@@ -86,7 +96,8 @@ function CreateLog() {
                     />
                 </div>
                 <button type="submit">Submit</button>
-                    <a href={`/logs/${navIndex}`}>Show</a>
+                <button onClick={() => handleDeleteByInd()}>Delete</button>
+                {/* <a href={`/logs/${navIndex}`}>Show</a> */}
             </form>
         </div>
     )
