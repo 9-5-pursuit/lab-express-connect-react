@@ -12,6 +12,7 @@ function CreateLog() {
         mistakesWereMadeToday: false
     };
     const [formData, setFormData] = useState(initialFormData);
+    const [navIndex, setNavIndex] = useState('')
     const navigate = useNavigate();
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
@@ -22,13 +23,22 @@ function CreateLog() {
             [name]: inputValue
         }));
     };
+    useEffect(() => {
+        axios.get('http://localhost:8888/logs').then(res => setNavIndex(res.data.length - 1))
+    }, [])
     const handleSubmit = async (event) => {
         event.preventDefault();
         setFormData(initialFormData)
         await axios.post(`http://localhost:8888/logs`, formData).then(res => {
-            navigate(`/logs/${res.data.length - 1}`)
+            setNavIndex(res.data.length-1)
+            navigate(`/logs/${navIndex.toString()}`)
         }).catch(e => console.log(e))
     };
+    async function handleDeleteByInd(index) {
+        await axios.delete(`http://localhost:8888/logs/${index}`).then(res => {
+          setNavIndex(res.data.length-1)
+        }).catch(e => console.log(e))
+      }
     return (
         <div style={{ padding: '2em' }}>
             <h1>New</h1>
@@ -81,6 +91,7 @@ function CreateLog() {
                     />
                 </div>
                 <button type="submit">Submit</button>
+                <button onClick={() => {handleDeleteByInd(navIndex)}}>Delete</button>
             </form>
         </div>
     )

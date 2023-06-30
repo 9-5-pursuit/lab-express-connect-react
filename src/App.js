@@ -14,7 +14,7 @@ function App() {
         {/* to update, delete, or view a log */}
         <Route path='/logs/:index' element={<GetLogs />}/>
         <Route path='/logs/new' element={<CreateLog />}/>
-        <Route path='/logs/:id/edit' element={<EditLog />}/>
+        <Route path='/logs/:index/edit' element={<EditLog />}/>
 
       </Routes>
     </Router>

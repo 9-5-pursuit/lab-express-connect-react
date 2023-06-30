@@ -6,10 +6,10 @@ function Nav() {
     <div>
         <ul>
             <li>
-                <Link to='/logs'>Home</Link>
+                <a href='/logs'>Home</a>
             </li>
             <li>
-                <Link to='/logs/new'>Create Log</Link>
+                <a href='/logs/new'>Create Log</a>
             </li>
         </ul>
     </div>
