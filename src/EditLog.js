@@ -15,7 +15,7 @@ function EditLog() {
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:8888/logs/${index}`).then(res => setFormData(res.data)).catch(e => console.log(e))
+        axios.get(`http://localhost:9000/logs/${index}`).then(res => setFormData(res.data)).catch(e => console.log(e))
     }, [])
     const [formData, setFormData] = useState(initialFormData);
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ function EditLog() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setFormData(initialFormData)
-        await axios.put(`http://localhost:8888/logs/${index}`, formData).then(res => {
+        await axios.put(`http://localhost:9000/logs/${index}`, formData).then(res => {
             navigate(`/logs/${index}`)
         }).catch(e => console.log(e))
     };

@@ -9,7 +9,7 @@ function GetLogs() {
         fetchData()
     }, [])
     async function fetchData() {
-        await axios.get(`http://localhost:8888/logs/`).then(res => {
+        await axios.get(`http://localhost:9000/logs/`).then(res => {
             if (res.data.length) setLogs(res.data)
             if (res.data.hasOwnProperty('captainName')) setLogs([res.data])
         })

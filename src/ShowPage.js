@@ -11,13 +11,13 @@ function ShowPage() {
         fetchData(index)
     }, [])
     async function fetchData(args) {
-        await axios.get(`http://localhost:8888/logs/${args ?? ''}`).then(res => {
+        await axios.get(`http://localhost:9000/logs/${args ?? ''}`).then(res => {
             setLogs([res.data])
         })
             .catch(e => console.log(e))
     }
     async function handleDeleteByInd(index) {
-        await axios.delete(`http://localhost:8888/logs/${index}`).then(data => {
+        await axios.delete(`http://localhost:9000/logs/${index}`).then(data => {
 
             setLogs([])
 

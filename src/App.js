@@ -1,7 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Nav from './Nav';
 import CreateLog from './CreateLog';
-import ChangeLog from './ShowPage';
 import GetLogs from './GetLogs';
 import EditLog from './EditLog';
 import ShowPage from './ShowPage';

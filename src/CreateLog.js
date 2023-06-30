@@ -12,7 +12,7 @@ function CreateLog() {
         mistakesWereMadeToday: false
     };
     useEffect(() => {
-        axios.get(`http://localhost:8888/logs`).then(res => {
+        axios.get(`http://localhost:9000/logs`).then(res => {
             let indVal = res.data.length - 1
             setNavIndex(indVal.toString())
         }).catch(e => console.log(e))
@@ -33,14 +33,14 @@ function CreateLog() {
         event.preventDefault();
         if (formData['captainName'] === '') return
         setFormData(initialFormData)
-        await axios.post(`http://localhost:8888/logs`, formData).then(res => {
+        await axios.post(`http://localhost:9000/logs`, formData).then(res => {
             let indexVal = res.data.length - 1
             setNavIndex(indexVal.toString())
             navigate('/logs')
         }).catch(e => console.log(e))
     };
     async function handleDeleteByInd() {
-        await axios.delete(`http://localhost:8888/logs/${navIndex}`).then(res => {
+        await axios.delete(`http://localhost:9000/logs/${navIndex}`).then(res => {
         }).catch(e => console.log(e))
     }
 
