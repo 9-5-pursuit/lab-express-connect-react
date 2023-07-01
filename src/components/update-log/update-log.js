@@ -31,11 +31,11 @@ export function UpdateLogs(){
             <h2>Edit</h2>
             <div id="createLog">
                 <form>
-                    <label htmlFor="newName">Captain's Name:</label>
+                    <label htmlFor="captainName">Captain's Name:</label>
                     <br/>
                     <input
                     type="text"
-                    id="newName"
+                    id="captainName"
                     value={name}
                     onChange={(x) => setName(x.target.value)}
                     />

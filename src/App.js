@@ -16,7 +16,7 @@ function App() {
         <button
         id="newLogButton"
         onClick={() => navigator('/logs/create')}
-        >NEW LOG</button>
+        >New</button>
       </header>
       <Routes>
         <Route path="/logs" element={<Logs/>} />
