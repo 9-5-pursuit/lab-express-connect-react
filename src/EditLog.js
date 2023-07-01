@@ -27,6 +27,7 @@ function EditLog() {
             ...prevFormData,
             [name]: inputValue
         }));
+        
     };
     const handleSubmit = async (event) => {
         event.preventDefault();

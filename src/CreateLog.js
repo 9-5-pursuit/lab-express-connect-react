@@ -97,7 +97,6 @@ function CreateLog() {
                 </div>
                 <button type="submit">Submit</button>
                 <button onClick={() => handleDeleteByInd()}>Delete</button>
-                {/* <a href={`/logs/${navIndex}`}>Show</a> */}
             </form>
         </div>
     )
