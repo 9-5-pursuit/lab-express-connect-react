@@ -45,41 +45,61 @@ function NewLog() {
     <div className="newLog">
       <h1>New</h1>
       <form onSubmit={handleOnSubmit}>
-        <label htmlFor="captainName">Captain's Name:</label>
+        <label htmlFor="captainName">
+          <span>Captain's Name: </span>
+        </label>
         <input
           type="text"
           value={capLog.captainName}
           onChange={handleOnChange}
           id="captainName"
         />
-        <label htmlFor="title">Title:</label>
+        <br />
+        <br />
+        <label htmlFor="title">
+          <span>Title: </span>
+        </label>
         <input
           type="text"
           value={capLog.title}
           onChange={handleOnChange}
           id="title"
         />
-        <label htmlFor="post">Post:</label>
+        <br />
+        <br />
+        <label htmlFor="post">
+          <span>Post: </span>
+        </label>
         <textarea
           type="text"
           value={capLog.post}
           onChange={handleOnChange}
           id="post"
         />
-        <label htmlFor="daysSinceLastCrisis">Days Since Last Crisis:</label>
+        <br />
+        <br />
+        <label htmlFor="daysSinceLastCrisis">
+          <span>Days Since Last Crisis: </span>
+        </label>
         <input
           type="number"
           id="daysSinceLastCrisis"
           value={capLog.daysSinceLastCrisis}
           onChange={handleOnChange}
         />
-        <label htmlFor="mistakesWereMadeToday">Mistakes were made today:</label>
+        <br />
+        <br />
+        <label htmlFor="mistakesWereMadeToday">
+          <span>Mistakes were made today: </span>
+        </label>
         <input
           type="checkbox"
           id="mistakesWereMadeToday"
           value={capLog.mistakesWereMadeToday}
           onChange={handleCheckBox}
         />
+        <br />
+        <br />
         <input type="submit"></input>
       </form>
     </div>

@@ -12,13 +12,11 @@ function Home() {
       />
       <h2>
         <span>
-          <a href="/logs">[ Logs Here ]</a>
-        </span>
-        <br />
-        ᗊ
-        <br />
+          <a href="/logs">[ View Logs Here ]</a>
+        </span>{" "}
+        🧭{" "}
         <span>
-          <a href="/logs/new">[ New Log Here ]</a>
+          <a href="/logs/new">[ Create a New Log Here ]</a>
         </span>
       </h2>
     </div>
