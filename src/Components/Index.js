@@ -25,23 +25,27 @@ function Index() {
       <h1>Index</h1>
       <section>
         <table>
-          <tr>
-            <th>Mistakes</th>
-            <th>Captain Name</th>
-            <th>See this log</th>
-          </tr>
-          <tr>
-            {logs.map((log, index) => {
-              return (
-                <td key={index}>
-                  <Link to={`/logs/${index}`}>
-                    {log.mistakesWereMadeToday === true ? "💥" : ""}{" "}
-                    {log.captainName} {log.title}
-                  </Link>
-                </td>
-              );
-            })}
-          </tr>
+          <thead>
+            <tr>
+              <th>Mistakes</th>
+              <th>Captain Name</th>
+              <th>See this log</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {logs.map((log, index) => {
+                return (
+                  <td key={index}>
+                    <Link to={`/logs/${index}`}>
+                      {log.mistakesWereMadeToday === true ? "💥" : ""}{" "}
+                      {log.captainName} - {log.title}
+                    </Link>
+                  </td>
+                );
+              })}
+            </tr>
+          </tbody>
         </table>
       </section>
     </div>
