@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 
 function Log() {
-  const navigate = useNavigate();
 
   const [logArray, setLogArray] = useState([]);
 
@@ -19,18 +18,23 @@ function Log() {
   useEffect(() => {
     fetchData();
   }, []);
+  
   return (
     <div className="App">
-      <h1>Logs</h1>
-      <ul className="Log">
-        {logArray.map((log, index) => (
-          <li key={index}>
-            <Link to={`/logs/${index}`}>
-              <h3>{log.title}</h3>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <h1>Index</h1>
+      <table>
+        <tbody className="Log">
+          {logArray.map((log, index) => (
+            <tr key={index}>
+              <td>
+                <Link to={`/logs/${index}`}>
+                  <h2>{log.title}</h2>
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

@@ -7,6 +7,7 @@ function ShowLog() {
   const [logArray, setLogArray] = useState([]);
   const [log, setLog] = useState({});
   const navigate = useNavigate();
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   async function fetchData() {
     try {
@@ -26,25 +27,31 @@ function ShowLog() {
     }
   }
 
+  useEffect(() => {
+    fetchData();
+    fetchLogData();
+  }, []);
+
   async function handleDeleteByIndex(index) {
+    setShowConfirmation(true);
+  }
+
+  async function handleConfirmDelete() {
     try {
       await axios.delete(`http://localhost:3001/logs/${index}`);
 
-      let filteredArray = logArray.filter(
-        (log, logIndex) => logIndex !== Number(index)
-      );
+      let filteredArray = logArray.filter((log, i) => i !== Number(index));
       setLogArray(filteredArray);
-      alert("Log Deleted")
+      alert("Log Deleted");
       navigate("/logs");
     } catch (e) {
       console.log(e);
     }
   }
 
-  useEffect(() => {
-    fetchData();
-    fetchLogData();
-  }, []);
+  function handleCancelDelete() {
+    setShowConfirmation(false);
+  }
 
   return (
     <div className="App">
@@ -63,6 +70,14 @@ function ShowLog() {
         <Link to={`/logs/${index}/edit`}>Edit</Link>
       </div>
       <button onClick={() => handleDeleteByIndex(index)}>Delete</button>
+
+      {showConfirmation && (
+        <div>
+          <p>Are you sure you want to delete this log?</p>
+          <button onClick={handleConfirmDelete}>Yes</button>
+          <button onClick={handleCancelDelete}>No</button>
+        </div>
+      )}
     </div>
   );
 }

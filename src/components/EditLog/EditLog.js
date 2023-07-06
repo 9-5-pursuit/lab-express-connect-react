@@ -10,7 +10,7 @@ function EditLog() {
     captainName: "",
     title: "",
     post: "",
-    mistakesWereMadeToday: "",
+    mistakesWereMadeToday: false,
     daysSinceLastCrisis: "",
   });
 
@@ -18,6 +18,7 @@ function EditLog() {
   async function fetchData() {
     try {
       let result = await axios.get(`http://localhost:3001/logs/${index}`);
+      setIsChecked(result.data.mistakesWereMadeToday);
       setLog(result.data);
     } catch (e) {
       console.log(e);
@@ -32,7 +33,7 @@ async function handleOnSubmit(e) {
   e.preventDefault();
 
   try {
-    let result = await axios.put(`http://localhost:3001/logs/${index}`, {
+    await axios.put(`http://localhost:3001/logs/${index}`, {
       captainName: log.captainName,
       title: log.title,
       post: log.post,
@@ -90,12 +91,7 @@ async function handleOnSubmit(e) {
           type="checkbox"
           id="mistakesWereMadeToday"
           checked={isChecked}
-          onChange={(e) =>
-            setLog({
-              ...log,
-              mistakesWereMadeToday: !log.mistakesWereMadeToday,
-            })
-          }
+          onChange={(e) => setIsChecked(e.target.checked)}
         />
         <button>Submit</button>
       </form>
