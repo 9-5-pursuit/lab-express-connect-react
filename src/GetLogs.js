@@ -20,6 +20,11 @@ function GetLogs() {
             <h1>Show</h1>
             <table>
                 <tbody>
+                    <tr>
+                        <th>Captain Name</th>
+                        <th>Title</th>
+                        <th>Mistakes?</th>
+                    </tr>
                 {logs && logs.map((item, i) => {
                     return (
                         <tr key={i + 1}>

@@ -40,6 +40,7 @@ function ShowPage() {
                                 <strong>Days since last crisis: </strong>{item.daysSinceLastCrisis}
                                 <br></br>
                                 <a href='/logs/0/edit'>Edit</a>
+                                <span>  </span>
                                 <a href='/logs'>Back</a>
                                 <button onClick={() => handleDeleteByInd(index)}>Delete</button>
                             </td>
