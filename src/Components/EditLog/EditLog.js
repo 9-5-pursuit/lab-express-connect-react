@@ -6,6 +6,7 @@ const URL = process.env.REACT_APP_API_URL;
 
 function EditLog() {
   const { index } = useParams();
+
   const [updateLog, setUpdateLog] = useState({
     captainName: "",
     title: "",
@@ -36,6 +37,15 @@ function EditLog() {
       let result = await axios.put(`${URL}/logs/${index}`);
       setUpdateLog(result.data);
       navigate(`/logs/${index}`);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  async function handleDeleteByIndex() {
+    try {
+      await axios.delete(`${URL}/logs/${index}`);
+
+      navigate("/logs");
     } catch (e) {
       console.log(e);
     }
@@ -81,6 +91,7 @@ function EditLog() {
           onChange={handleOnCheck}
         />
         <input type="submit"></input>
+        <button onClick={handleDeleteByIndex}>Delete</button>
       </form>
       <Link to={"/logs"}>Back</Link>
     </div>

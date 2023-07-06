@@ -49,7 +49,6 @@ function ShowLog() {
       </Link>
       <button onClick={handleDeleteByIndex}>Delete</button>
     </div>
-
   );
 }
 
