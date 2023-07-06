@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
+import "./log.css";
+
 function Log() {
     const [log, setLog] = useState({})
     const [logArray, setLogArray] = useState([]);
@@ -53,16 +55,27 @@ function Log() {
     }
 
     return (
-        <div>
+        <div className="log-container">
             <h2>Show</h2>
             <div>
-                <h3>{log.title} - by {log.captainName}</h3>
-                <p>{log.post}</p>
-                <p><strong>Days since last crisis:</strong> {log.daysSinceLastCrisis}</p>
-                <div>
-                    <button onClick={() => handleBackButton()}>Back</button>
-                    <button onClick={() => handleEdit(index)}>Edit</button>
-                    <button onClick={() => handleDeleteByIndex(index)}>Delete</button>
+                <div className="log-container-content">
+                    <h3>{log?.title} - by {log?.captainName}</h3>
+                    <p>{log?.post}</p>
+                    <p><strong>Days since last crisis:</strong> {log?.daysSinceLastCrisis}</p>
+                </div>
+
+                <div className="log-container-navigation">
+                    <ul>
+                        <li>
+                            <button onClick={() => handleBackButton()}>Back</button>
+                        </li>
+                        <li>
+                            <button onClick={() => handleEdit(index)}>Edit</button>
+                        </li>
+                        <li>
+                            <button onClick={() => handleDeleteByIndex(index)}>Delete</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
