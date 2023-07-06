@@ -10,8 +10,6 @@ function Log() {
   async function fetchData() {
     try {
       let result = await axios.get("http://localhost:3001/logs");
-      // console.log(result);
-      // console.log(result.data);
       setLogArray(result.data);
     } catch (e) {
       console.log(e);
@@ -24,7 +22,7 @@ function Log() {
   return (
     <div className="App">
       <h1>Logs</h1>
-      <ul>
+      <ul className="Log">
         {logArray.map((log, index) => (
           <li key={index}>
             <Link to={`/logs/${index}`}>
