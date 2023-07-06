@@ -1,6 +1,7 @@
 // If tests are failing because Picard is no longer your first entry
 // restart your express server
 // in order to rest your data
+
 import interceptShow from "../support/intercept/logs/show.js";
 const URL = Cypress.env("URL");
 const CI_ENV = Cypress.env("ci");
