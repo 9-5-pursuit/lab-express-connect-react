@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
-import Logs from "./components/Logs";
-import LogsForm from "./components/LogsForm";
+import Logs from "./components/Logs/Logs";
+import LogsForm from "./components/Logs/LogsForm";
 
 function App() {
   return (

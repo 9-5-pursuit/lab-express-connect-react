@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logs from "./Logs";
-import LogsForm from "./LogsForm";
+import Logs from "./Logs/Logs";
+import LogsForm from "./Logs/LogsForm";
 
 function Nav() {
   return (
