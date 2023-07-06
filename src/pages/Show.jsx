@@ -5,7 +5,7 @@ import ShowDetails from '../components/ShowDetails';
 
 function Show() {
   return (
-    <div className="Show">
+    <div className="show">
       <h2>Show</h2>
       <div className="button">
         {' '}
