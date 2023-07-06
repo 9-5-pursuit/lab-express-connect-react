@@ -1,5 +1,40 @@
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.table-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table tr:hover {
+  background-color: #f9f9f9;
+}
+.nav-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.nav-bar h2 {
+  justify-self: center;
+}
+.newLogButton {
+  justify-self: center;
+  align-self: center;
+
+  width: 20%;
+  height: 5vh;
 }
