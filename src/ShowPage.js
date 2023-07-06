@@ -27,6 +27,7 @@ function ShowPage() {
         <>
             <h1>Show</h1>
             <table>
+                <tbody>
                 {logs && logs.map((item, i) => {
                     return (
                         <tr key={i + 1}>
@@ -38,13 +39,14 @@ function ShowPage() {
 
                                 <strong>Days since last crisis: </strong>{item.daysSinceLastCrisis}
                                 <br></br>
-                                <a href='/logs'>Back</a>
                                 <a href='/logs/0/edit'>Edit</a>
+                                <a href='/logs'>Back</a>
                                 <button onClick={() => handleDeleteByInd(index)}>Delete</button>
                             </td>
                         </tr>
                     )
                 })}
+                </tbody>
             </table>
         </>
     )

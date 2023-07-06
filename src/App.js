@@ -4,6 +4,8 @@ import CreateLog from './CreateLog';
 import GetLogs from './GetLogs';
 import EditLog from './EditLog';
 import ShowPage from './ShowPage';
+import Error from './Error';
+import RenameCaptain from './RenameCaptain';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path='/logs/:index' element={<ShowPage />}/>
         <Route path='/logs/new' element={<CreateLog />}/>
         <Route path='/logs/:index/edit' element={<EditLog />}/>
+        <Route path='/logs/rename' element={<RenameCaptain />}/>
+        <Route path='*' element={<Error />}/>
       </Routes>
     </Router>
   );
