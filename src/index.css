@@ -1,5 +1,12 @@
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.logTable {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.logTable li {
+  list-style: none;
+  padding-bottom: 30px;
+}
+.table {
+  border: 2px solid black;
+  width: 70%;
 }
