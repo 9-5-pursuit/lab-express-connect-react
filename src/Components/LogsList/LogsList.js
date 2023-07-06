@@ -23,23 +23,24 @@ function LogsList() {
   }
 
   return (
-    <ul className="table">
-      <div className="logTable">
-        <h4>Captain</h4>
-        <h4>Title</h4>
-      </div>
-
-      {logsList.map((log, index) => (
-        <div
-          key={index}
-          className="logTable"
-          onClick={() => handleDetail(index)}
-        >
-          <li>{log.captainName}</li>
-          <li>{log.title}</li>
-        </div>
-      ))}
-    </ul>
+    <div className="table-container">
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Captain's Name</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          {logsList.map((log, index) => (
+            <tr key={index} onClick={() => handleDetail(index)}>
+              <td>{log.captainName}</td>
+              <td>{log.title}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
