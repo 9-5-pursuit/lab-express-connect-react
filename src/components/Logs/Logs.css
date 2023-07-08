@@ -1,0 +1,40 @@
+.h2-title {
+    margin: 25px 25px;
+  }
+  
+  .table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  #logs {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #logs td,
+  #logs th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #logs tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #logs tr:hover {
+    background-color: #ddd;
+  }
+  
+  #logs th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0901ff;
+    color: white;
+  }
+  
+  .logs-link {
+    color: black;
+  }
