@@ -1,0 +1,20 @@
+.logs {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.logs-table {
+  border-collapse: collapse;
+  color: rgb(70, 50, 10);
+  width: 100%;
+}
+
+.logs-table td,
+.logs-table th {
+  border: 1px solid #797777;
+  padding: 8px;
+}
+
+#log-row:hover {
+  background-color: bisque;
+}

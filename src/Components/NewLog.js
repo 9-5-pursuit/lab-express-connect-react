@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import "./NewLog.css";
+
 const URL = process.env.REACT_APP_API_URL;
 
 function NewLog() {
@@ -46,7 +48,9 @@ function NewLog() {
       <h1>New</h1>
       <form onSubmit={handleOnSubmit}>
         <label htmlFor="captainName">
-          <span>Captain's Name: </span>
+          <span>
+            Captain's Name: <br />
+          </span>
         </label>
         <input
           type="text"
@@ -57,7 +61,9 @@ function NewLog() {
         <br />
         <br />
         <label htmlFor="title">
-          <span>Title: </span>
+          <span>
+            Title: <br />
+          </span>
         </label>
         <input
           type="text"
@@ -68,7 +74,9 @@ function NewLog() {
         <br />
         <br />
         <label htmlFor="post">
-          <span>Post: </span>
+          <span>
+            Post: <br />
+          </span>
         </label>
         <textarea
           type="text"
@@ -79,7 +87,9 @@ function NewLog() {
         <br />
         <br />
         <label htmlFor="daysSinceLastCrisis">
-          <span>Days Since Last Crisis: </span>
+          <span>
+            Days Since Last Crisis: <br />
+          </span>
         </label>
         <input
           type="number"
@@ -90,7 +100,9 @@ function NewLog() {
         <br />
         <br />
         <label htmlFor="mistakesWereMadeToday">
-          <span>Mistakes were made today: </span>
+          <span>
+            Mistakes were made today:
+          </span>
         </label>
         <input
           type="checkbox"

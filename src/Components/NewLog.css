@@ -1,0 +1,9 @@
+input {
+  background-color: bisque;
+}
+textarea {
+  background-color: blanchedalmond;
+}
+.newLog h1 {
+    text-decoration: underline;
+}

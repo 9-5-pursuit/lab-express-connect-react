@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Index.css";
 
 const URL = process.env.REACT_APP_API_URL;
 
@@ -24,27 +25,30 @@ function Index() {
     <div className="logs">
       <h1>Index</h1>
       <section>
-        <table>
-          <thead>
+        <table className="logs-table">
+          <tbody>
             <tr>
               <th>Mistakes</th>
               <th>Captain Name</th>
               <th>See this log</th>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              {logs.map((log, index) => {
-                return (
-                  <td key={index}>
+            {logs.map((log, index) => {
+              return (
+                <tr id="log-row" key={index}>
+                  <td>
                     <Link to={`/logs/${index}`}>
-                      {log.mistakesWereMadeToday === true ? "💥" : ""}{" "}
-                      {log.captainName} - {log.title}
+                      {log.mistakesWereMadeToday === true ? "💥" : ""}
                     </Link>
                   </td>
-                );
-              })}
-            </tr>
+                  <td>
+                    <Link to={`/logs/${index}`}>{log.captainName}</Link>
+                  </td>
+                  <td>
+                    <Link to={`/logs/${index}`}>{log.title}</Link>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </section>
