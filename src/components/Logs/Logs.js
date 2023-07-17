@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  BsFillXSquareFill,
-  BsClipboardXFill,
-  BsClipboardCheck,
-} from "react-icons/bs";
+import { BsClipboardXFill, BsClipboardCheck } from "react-icons/bs";
 import axios from "axios";
 
 function Logs() {

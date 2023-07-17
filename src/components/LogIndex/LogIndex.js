@@ -36,6 +36,7 @@ function LogIndex() {
   // functions used for deleting or going back to home page
   function handleGoBackToLogs() {
     navigate(`/logs`);
+    //  or "/-1" assuming this would go back one
   }
 
   function handleEdit() {
@@ -68,6 +69,7 @@ function LogIndex() {
       >
         <button className="btn" onClick={handleGoBackToLogs}>
           Back
+          {/* OR onClick={()=> navigate("/logs")} */}
         </button>
         <button className="btn" onClick={handleEdit}>
           Edit
@@ -81,3 +83,71 @@ function LogIndex() {
 }
 
 export default LogIndex;
+
+/*
+
+Another approach 
+
+
+Pak Chu
+  10:59 AM
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
+import "./Log.css";
+
+function Log() {
+  const { index } = useParams();
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    try {
+      let result = await axios.get(`http://localhost:3001/logs/${index}`);
+
+      setData(result.data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  return (
+    <div className="log-container">
+      <div>
+        <h2>Show</h2>
+
+        <div className="log-container-content">
+          <p>
+            {data?.title} by {data?.captainName}
+          </p>
+
+          <p> {data?.post}</p>
+
+          <p>Days Since Last Crisis: {data?.daysSinceLastCrisis}</p>
+        </div>
+
+        <div className="log-container-navigation">
+          <ul>
+            <li>
+              <button>Back</button>
+            </li>
+            <li>
+              <button>Edit</button>
+            </li>
+            <li>
+              <button>Delete</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Log;
+*/
