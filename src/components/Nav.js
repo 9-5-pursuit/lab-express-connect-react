@@ -6,7 +6,7 @@ function Nav() {
     <div>
       <ul className="nav">
         <li>
-          <Link to="/">
+          <Link to="/logs">
             <h1 className="nav-captain">Captain's Log</h1>
           </Link>
         </li>
