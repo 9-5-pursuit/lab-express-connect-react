@@ -8,7 +8,7 @@ function EditLog() {
    const params = useParams()
     let index = params.id
   const [log, setLog] = useState({});
-//   const [isDone, setIsDone] = useState(false);
+
 
   useEffect(() => {
     handleFetchDataByIndex();
@@ -18,12 +18,8 @@ function EditLog() {
     try { 
       let result = await axios.get(`http://localhost:3001/logs/${index}`);
 
-    //   console.log(result);
-    //   console.log(result.data);
-    //   console.log(result.data.data);
 
       setLog(result.data);
-    //   setIsDone(done);
     } catch (e) {
       console.log(e);
     }
